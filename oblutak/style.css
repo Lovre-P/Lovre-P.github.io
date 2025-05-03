@@ -60,12 +60,19 @@ header {
     align-items: center;
     justify-content: center;
     background-color: #b7c8a4;
+    overflow: visible;
+}
+
+.productsbg.c {
+    background-color: black;
 }
 
 .productsbg img {
+    
     width: 140px;
     height: 140px;
     object-fit: cover;
+    overflow: visible;
 }
 
 .products-img-div {
@@ -74,4 +81,13 @@ header {
     align-items: center;
     justify-content: center;
     width: 50%;
+}
+
+.product-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f8f9;
 }
