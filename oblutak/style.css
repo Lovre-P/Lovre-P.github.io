@@ -45,3 +45,33 @@ header {
     flex-direction: column;
     justify-content: center;
 }
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.productsbg {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b7c8a4;
+}
+
+.productsbg img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.products-img-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
