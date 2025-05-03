@@ -1,0 +1,47 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    color: #9ab794;
+    justify-content: space-between;
+    height: 490px;
+}
+
+.hero-image {
+    width: 50%;
+    background-image: url("assets/images/header.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 20px;
+    color: black;
+}
+
+.promo-strip {
+    color: black;
+    background-color: #b7c8a4;
+    padding: 20px;
+    text-align: center;
+    height: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
