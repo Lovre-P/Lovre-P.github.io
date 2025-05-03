@@ -3,17 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio | Lovre P.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Ovo je moj portfolio</h1>
-    <p>Ovdje možete promaći sve informacije o meni i mojim projektima.</p>
-    <h2>Projekti</h2>
-    <ul>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-    </ul>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Lovre P.</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">My Portfolio</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Here you can find a selection of my recent projects. Each project showcases different skills and technologies.</p>
+
+            <div class="projects">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('images/submit-form-img.png');"></div>
+                    <div class="project-content">
+                        <h3>Submit Form</h3>
+                        <p>A fully responsive submit form with return page.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                        <a href="submit-form.html" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" id="project-2">
+                    <div class="project-img" style="background-image: url('https://via.placeholder.com/600x400/166088/ffffff?text=Portfolio+Website');"></div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>A modern portfolio website with smooth animations and responsive design for a photography client.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">GSAP</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" id="project-3">
+                    <div class="project-img" style="background-image: url('https://via.placeholder.com/600x400/4fc3dc/ffffff?text=Weather+App');"></div>
+                    <div class="project-content">
+                        <h3>Weather Application</h3>
+                        <p>A weather forecast application that provides real-time weather data and 5-day forecasts for any location.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">API Integration</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Responsive Design</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" id="project-4">
+                    <div class="project-img" style="background-image: url('https://via.placeholder.com/600x400/333333/ffffff?text=Task+Manager');"></div>
+                    <div class="project-content">
+                        <h3>Task Manager</h3>
+                        <p>A full-stack task management application with user authentication, task categories, and deadline notifications.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">JWT</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background-color: var(--primary-color); padding: 80px 0; text-align: center; color: white;">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">Interested in working together?</h2>
+            <p style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+            <a href="index.html#contact" class="btn" style="background-color: white; color: var(--primary-color);">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Lovre P.</h3>
+                    <p>A passionate web developer focused on creating beautiful and functional websites.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Split, Croatia</p>
+                    <p><i class="fas fa-envelope"></i> lovre@example.com</p>
+                    <p><i class="fas fa-phone"></i> +385 91 234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Lovre P. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
