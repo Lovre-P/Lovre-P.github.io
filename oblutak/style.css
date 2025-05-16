@@ -45,13 +45,13 @@ header {
 
 .products {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    background-color: #f6f8f9;
 }
 
 .productsbg {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -65,9 +65,8 @@ header {
 }
 
 .productsbg img {
-    
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     overflow: visible;
 }
@@ -77,14 +76,92 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 40%;
+    padding: 20px;
 }
 
 .product-info {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     background-color: #f6f8f9;
+    padding: 40px;
+}
+
+.product-info h2 {
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.product-info h3 {
+    color: #9ab794;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.product-info hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: #9ab794;
+    margin-bottom: 20px;
+}
+
+.product-info p {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.granulacije {
+    width: 70%;
+}
+
+.granulacije .row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.granulacije .row span {
+    margin-right: 50px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+}
+
+.uteg {
+    width: 70px;
+    margin-top: 0;
+    align-self: flex-start;
+}
+
+.cta-button {
+    background-color: #b7c8a4;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    align-self: flex-start;
+    border-radius: 4px;
 }
