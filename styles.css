@@ -296,6 +296,14 @@ nav {
   animation-delay: 0.6s;
 }
 
+.project-card:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.project-card:nth-child(6) {
+  animation-delay: 1s;
+}
+
 .project-img {
   height: 200px;
   background-size: cover;
