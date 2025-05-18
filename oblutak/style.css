@@ -518,7 +518,7 @@ footer {
     .contact-form input[type="email"],
     .contact-form input[type="tel"],
     .contact-form textarea {
-        width: 100%;
+        width: 92%;
         padding: 12px;
     }
     
