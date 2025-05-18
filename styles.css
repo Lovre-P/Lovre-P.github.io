@@ -344,12 +344,6 @@ nav {
   align-items: center;
 }
 
-.about-img {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: var(--box-shadow);
-}
-
 .about-text h2 {
   margin-bottom: 20px;
   color: var(--primary-color);
@@ -508,4 +502,21 @@ footer {
   .nav-links {
     display: none;
   }
+}
+
+/* Circle Image Container */
+.circle-img-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border-radius: 50%;
+  background: linear-gradient(to center, white, transparent);
+  padding: 10px;
+}
+
+.circle-img-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
