@@ -122,7 +122,6 @@ header {
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .container-right {
@@ -372,4 +371,185 @@ button[type="submit"]:hover {
     justify-content: space-between;
     gap: 485px;
     width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .container-right h2 {
+        font-size: calc(1vmin + 16px);
+        padding: 15px 40px;
+    }
+    
+    .form.posalji {
+        gap: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .container-left, .container-right {
+        width: 100%;
+        height: auto;
+    }
+    
+    .container-left {
+        min-height: 400px;
+        padding-top: 0;
+    }
+    
+    .container-right {
+        padding: 30px 20px;
+    }
+    
+    .container-right h1 {
+        font-size: 20px;
+    }
+    
+    .container-right h2 {
+        margin-right: 0;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    
+    .form.posalji {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .form.posalji p {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .form.posalji button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+    
+    .container-logo h2 {
+        font-size: 16px;
+    }
+    
+    .container-logo img {
+        height: 35px;
+    }
+    
+    .nav-links a {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    
+    .nav-links .social-icons {
+        margin-left: 10px;
+    }
+    
+    .nav-links .social-icons a {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .left-text-div {
+        padding: 20px 10px;
+    }
+    
+    .left-text {
+        font-size: 20px;
+    }
+    
+    .left-text ul li {
+        font-size: 16px;
+        width: 90%;
+    }
+    
+    .form.red1 {
+        flex-direction: column;
+    }
+    
+    .form.red1 > div {
+        width: 100%;
+    }
+    
+    #ime_prezime {
+        width: 100% !important;
+    }
+    
+    .form.slazem_se {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form.slazem_se p {
+        margin-bottom: 10px;
+    }
+    
+    .privola p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    header {
+        padding: 8px 15px;
+    }
+    
+    .container-logo h2 {
+        font-size: 14px;
+    }
+    
+    .container-logo img {
+        height: 30px;
+        margin-right: 8px;
+    }
+    
+    .nav-links a {
+        display: none; /* Hide the "O NAMA" link on very small screens */
+    }
+    
+    .container-left {
+        min-height: 300px;
+    }
+    
+    .container-right h1 {
+        font-size: 18px;
+    }
+    
+    .container-right h2 {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    ul li::before {
+        font-size: 20px;
+    }
+    
+    .left-text ul li {
+        font-size: 14px;
+        padding-left: 25px;
+    }
 }
