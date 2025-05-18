@@ -277,6 +277,11 @@ nav {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
+  position: relative;
+  padding-bottom: 70px; /* Add space for the button */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -312,6 +317,9 @@ nav {
 
 .project-content {
   padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-content h3 {
@@ -337,6 +345,14 @@ nav {
   border-radius: 20px;
   font-size: 0.8rem;
   color: var(--primary-color);
+}
+
+.project-content .btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  text-align: center;
 }
 
 /* About Section */
@@ -528,3 +544,4 @@ footer {
   border-radius: 50%;
   object-fit: cover;
 }
+
