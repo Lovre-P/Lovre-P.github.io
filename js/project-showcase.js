@@ -486,6 +486,24 @@ const enhancedProjectsData = [
     link: 'https://lovre-p.github.io/oblutak/index.html',
     github: 'https://github.com/Lovre-P/Lovre-P.github.io'
   },
+  {
+    id: 8,
+    title: 'PWA AI Summarizer App',
+    description: 'Gemini powered AI Summarizer App for shared linkes',
+    longDescription: 'Users can share with an app a link of a article or Youtube video, and the app will return a summary of the content transcribable to audio. Built with HTML, CSS, JavaScript and Gemini AI.',
+    image: 'assets/summarizer.png',
+    technologies: ['HTML5', 'CSS3', 'PWA', 'JavaScript', 'Gemini AI'],
+    category: 'mobile',
+    features: [
+      'Gemini AI integration',
+      'PWA with service worker',
+      'Responsive design for all devices',
+      'Clean and modern design',
+      'Touch support for mobile devices'
+    ],
+    link: 'https://lovre-p.github.io/summarizer-basic',
+    github: 'https://github.com/Lovre-P/summarizer-basic'
+  },
 ];
 
 // ===== GLOBAL FUNCTION FOR LOADING PROJECTS =====

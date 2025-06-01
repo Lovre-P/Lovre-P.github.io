@@ -27,7 +27,7 @@ const urlsToCache = [
   '/assets/mega-invest-demo.png',
   '/assets/submit-form.png',
   '/assets/webshop.png',
-  
+  '/assets/summarizer.png',
   // Add other static assets as needed
 ];
 
