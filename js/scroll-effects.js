@@ -124,8 +124,14 @@ class ScrollEffects {
   
   setupGSAPScrollTriggers() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    
-    // Hero section parallax
+
+    // Configure ScrollTrigger for better performance during smooth scrolling
+    ScrollTrigger.config({
+      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+      ignoreMobileResize: true
+    });
+
+    // Hero section parallax with optimized scrub
     gsap.to('.hero-background', {
       yPercent: -50,
       ease: 'none',
@@ -133,7 +139,8 @@ class ScrollEffects {
         trigger: '.hero',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: true
+        scrub: 1, // Add slight lag for smoother performance
+        invalidateOnRefresh: true
       }
     });
     
@@ -157,7 +164,9 @@ class ScrollEffects {
               trigger: section,
               start: 'top 80%',
               end: 'bottom 20%',
-              toggleActions: 'play none none none'
+              toggleActions: 'play none none none',
+              fastScrollEnd: true, // Optimize for fast scrolling
+              preventOverlaps: true // Prevent animation overlaps
             }
           }
         );
@@ -280,44 +289,8 @@ class ScrollEffects {
 }
 
 // ===== SMOOTH SCROLLING =====
-class SmoothScrolling {
-  constructor() {
-    this.setupSmoothScrolling();
-  }
-  
-  setupSmoothScrolling() {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        const targetId = anchor.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          this.scrollToElement(targetElement);
-        }
-      });
-    });
-  }
-  
-  scrollToElement(element) {
-    const offsetTop = element.offsetTop - 80; // Account for fixed nav
-    
-    if (typeof gsap !== 'undefined') {
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: offsetTop,
-        ease: 'power2.inOut'
-      });
-    } else {
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  }
-}
+// Note: Smooth scrolling is now handled by main.js to prevent conflicts
+// This class is kept for potential future enhancements
 
 // ===== SCROLL DIRECTION DETECTION =====
 class ScrollDirection {
@@ -455,7 +428,7 @@ class ScrollPerformance {
 // ===== INITIALIZE SCROLL EFFECTS =====
 document.addEventListener('DOMContentLoaded', () => {
   window.scrollEffects = new ScrollEffects();
-  window.smoothScrolling = new SmoothScrolling();
+  // SmoothScrolling removed - handled by main.js
   window.scrollDirection = new ScrollDirection();
   window.intersectionEnhancements = new IntersectionEnhancements();
   window.scrollPerformance = new ScrollPerformance();
@@ -463,7 +436,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== EXPORT FOR OTHER MODULES =====
 window.ScrollEffects = ScrollEffects;
-window.SmoothScrolling = SmoothScrolling;
 window.ScrollDirection = ScrollDirection;
 window.IntersectionEnhancements = IntersectionEnhancements;
 window.ScrollPerformance = ScrollPerformance;

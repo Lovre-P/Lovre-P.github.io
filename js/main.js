@@ -5,7 +5,8 @@ class PortfolioApp {
     this.currentSection = 'home';
     this.scrollPosition = 0;
     this.isScrolling = false;
-    
+    this.isScrollAnimating = false; // Track if smooth scroll is active
+
     this.init();
   }
   
@@ -46,8 +47,8 @@ class PortfolioApp {
   }
   
   setupEventListeners() {
-    // Scroll events
-    window.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 16));
+    // Scroll events with optimized throttling
+    window.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 8), { passive: true });
 
     // Navigation events
     this.elements.navLinks.forEach(link => {
@@ -319,24 +320,68 @@ class PortfolioApp {
   }
   
   smoothScrollTo(element) {
-    const offsetTop = element.offsetTop - 80; // Account for fixed nav
+    // Prevent multiple scroll animations
+    if (this.isScrollAnimating) {
+      return;
+    }
 
-    // Use GSAP for smooth scrolling if available, otherwise fallback to native
+    // Calculate responsive offset based on screen size
+    const navHeight = window.innerWidth <= 768 ? 60 : 80;
+    const offsetTop = element.offsetTop - navHeight;
+
+    // Kill any existing scroll animations to prevent conflicts
     if (typeof gsap !== 'undefined') {
+      gsap.killTweensOf(window);
+      this.isScrollAnimating = true;
+
+      // Calculate optimal duration based on scroll distance
+      const scrollDistance = Math.abs(offsetTop - this.scrollPosition);
+      const duration = Math.min(Math.max(scrollDistance / 1000, 0.5), 1.5);
+
       gsap.to(window, {
-        duration: 1,
+        duration: duration,
         scrollTo: {
           y: offsetTop,
-          autoKill: false
+          autoKill: true,
+          onAutoKill: () => {
+            this.isScrollAnimating = false;
+          }
         },
-        ease: "power2.out"
+        ease: "power2.inOut",
+        onStart: () => {
+          // Temporarily pause ScrollTrigger updates during scroll
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.getAll().forEach(trigger => {
+              trigger.disable();
+            });
+          }
+        },
+        onComplete: () => {
+          this.isScrollAnimating = false;
+          // Re-enable ScrollTrigger after scroll completes
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.getAll().forEach(trigger => {
+              trigger.enable();
+            });
+            ScrollTrigger.refresh();
+          }
+        },
+        onInterrupt: () => {
+          this.isScrollAnimating = false;
+          // Re-enable ScrollTrigger if interrupted
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.getAll().forEach(trigger => {
+              trigger.enable();
+            });
+          }
+        }
       });
     } else {
       // Fallback to native scrollTo for browsers without GSAP
       try {
         window.scrollTo({
           top: offsetTop,
-          behavior: 'smooth'
+          behavior: 'auto' // Use auto instead of smooth to avoid conflicts
         });
       } catch (error) {
         // Fallback for older browsers

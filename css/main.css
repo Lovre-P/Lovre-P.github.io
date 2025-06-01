@@ -73,7 +73,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Disable native smooth scroll - let GSAP handle it */
+  scroll-behavior: auto;
   font-size: 16px;
 }
 

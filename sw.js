@@ -17,6 +17,17 @@ const urlsToCache = [
   '/js/contact-form.js',
   '/js/performance.js',
   '/assets/favicon.svg',
+  '/assets/about-you-profile-img.png',
+  '/assets/aiui.png',
+  '/assets/calculator.png',
+  '/assets/oblutak.png',
+  '/assets/personal-logo-w.svg',
+  '/assets/personal-logo-b.svg',
+  '/assets/circular-slider.png',
+  '/assets/mega-invest-demo.png',
+  '/assets/submit-form.png',
+  '/assets/webshop.png',
+  
   // Add other static assets as needed
 ];
 
