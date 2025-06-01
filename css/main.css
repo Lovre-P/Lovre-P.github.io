@@ -677,3 +677,12 @@ body {
     padding: 0 var(--spacing-sm);
   }
 }
+
+.tech-tags-modal {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
