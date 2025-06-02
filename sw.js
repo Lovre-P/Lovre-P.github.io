@@ -1,5 +1,5 @@
 // ===== SERVICE WORKER FOR CACHING =====
-const CACHE_NAME = 'portfolio-v1.0.0';
+const CACHE_NAME = 'portfolio-v1.0.1';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -8,7 +8,6 @@ const urlsToCache = [
   '/css/components.css',
   '/css/responsive.css',
   '/js/main.js',
-  '/js/animations.js',
   '/js/cursor.js',
   '/js/particles.js',
   '/js/scroll-effects.js',
@@ -47,6 +46,11 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', (event) => {
+  // Skip caching for chrome-extension, moz-extension, and other non-http(s) schemes
+  if (!event.request.url.startsWith('http')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -54,21 +58,25 @@ self.addEventListener('fetch', (event) => {
         if (response) {
           return response;
         }
-        
+
         return fetch(event.request).then((response) => {
           // Check if we received a valid response
           if (!response || response.status !== 200 || response.type !== 'basic') {
             return response;
           }
-          
+
           // Clone the response
           const responseToCache = response.clone();
-          
+
           caches.open(CACHE_NAME)
             .then((cache) => {
               cache.put(event.request, responseToCache);
+            })
+            .catch((error) => {
+              // Silently handle cache errors to prevent console spam
+              console.debug('Cache put failed:', error.message);
             });
-          
+
           return response;
         });
       })
