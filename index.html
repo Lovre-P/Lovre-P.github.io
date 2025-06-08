@@ -93,6 +93,53 @@
         <div class="scroll-progress" id="scrollProgress"></div>
     </nav>
     
+    <!-- Animated Background Lines -->
+    <div class="animated-background" id="animatedBackground">
+        <svg class="background-svg" id="backgroundSvg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="goldGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.8"/>
+                    <stop offset="50%" style="stop-color:#bfa5e2;stop-opacity:0.6"/>
+                    <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0.4"/>
+                </linearGradient>
+                <linearGradient id="goldGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#bfa5e2;stop-opacity:0.7"/>
+                    <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.5"/>
+                    <stop offset="100%" style="stop-color:#a3c9a8;stop-opacity:0.3"/>
+                </linearGradient>
+                <linearGradient id="goldGradient3" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" style="stop-color:#a3c9a8;stop-opacity:0.6"/>
+                    <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.8"/>
+                    <stop offset="100%" style="stop-color:#bfa5e2;stop-opacity:0.4"/>
+                </linearGradient>
+                <!-- Light theme gradients -->
+                <linearGradient id="goldGradientLight1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#b8860b;stop-opacity:0.4"/>
+                    <stop offset="50%" style="stop-color:#9370db;stop-opacity:0.3"/>
+                    <stop offset="100%" style="stop-color:#b8860b;stop-opacity:0.2"/>
+                </linearGradient>
+                <linearGradient id="goldGradientLight2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#9370db;stop-opacity:0.35"/>
+                    <stop offset="50%" style="stop-color:#b8860b;stop-opacity:0.25"/>
+                    <stop offset="100%" style="stop-color:#8fbc8f;stop-opacity:0.15"/>
+                </linearGradient>
+                <linearGradient id="goldGradientLight3" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" style="stop-color:#8fbc8f;stop-opacity:0.3"/>
+                    <stop offset="50%" style="stop-color:#b8860b;stop-opacity:0.4"/>
+                    <stop offset="100%" style="stop-color:#9370db;stop-opacity:0.2"/>
+                </linearGradient>
+            </defs>
+
+            <!-- Animated Lines -->
+            <path class="bg-line line-1" d="M0,200 Q480,100 960,200 T1920,200" stroke="url(#goldGradient1)" stroke-width="2" fill="none" opacity="0.6"/>
+            <path class="bg-line line-2" d="M0,400 Q480,300 960,400 T1920,400" stroke="url(#goldGradient2)" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <path class="bg-line line-3" d="M0,600 Q480,500 960,600 T1920,600" stroke="url(#goldGradient3)" stroke-width="1" fill="none" opacity="0.4"/>
+            <path class="bg-line line-4" d="M0,800 Q480,700 960,800 T1920,800" stroke="url(#goldGradient1)" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <path class="bg-line line-5" d="M1920,150 Q1440,50 960,150 T0,150" stroke="url(#goldGradient2)" stroke-width="2" fill="none" opacity="0.5"/>
+            <path class="bg-line line-6" d="M1920,350 Q1440,250 960,350 T0,350" stroke="url(#goldGradient3)" stroke-width="1" fill="none" opacity="0.4"/>
+        </svg>
+    </div>
+
     <!-- Main Content -->
     <main class="main">
         <!-- Hero Section -->
@@ -368,6 +415,7 @@
     <script src="js/cursor.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/scroll-effects.js"></script>
+    <script src="js/background-lines.js"></script>
     <script src="js/theme-switcher.js"></script>
     <script src="js/project-showcase.js"></script>
     <script src="js/contact-form.js"></script>
