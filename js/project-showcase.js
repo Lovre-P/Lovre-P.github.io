@@ -92,12 +92,22 @@ class ProjectShowcase {
       </div>
     `;
     
-    // Add click event for modal
-    const viewDetailsBtn = card.querySelector('.view-details');
-    viewDetailsBtn.addEventListener('click', () => {
+    // Add click event for modal on the entire card
+    card.addEventListener('click', (e) => {
+      // Prevent opening modal if clicking on links or buttons
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('button')) {
+        return;
+      }
       this.openProjectModal(project);
     });
-    
+
+    // Add click event for modal on view details button (keep for backwards compatibility)
+    const viewDetailsBtn = card.querySelector('.view-details');
+    viewDetailsBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent double triggering
+      this.openProjectModal(project);
+    });
+
     // Add hover effects
     this.setupCardHoverEffects(card);
     
@@ -383,9 +393,9 @@ const enhancedProjectsData = [
   },
   {
     id: 2,
-    title: 'Investment Platform',
-    description: 'Investment platform with admin backend and JSON API',
-    longDescription: 'A fully responsive investment platform with a clean and modern design, admin backend with authentication, middleware and JSON Investment API.',
+    title: 'Investment Platform Demo',
+    description: 'User: admin@megainvest.com Password: adminpassword123',
+    longDescription: 'A fully responsive investment platform with a clean and modern design, admin backend with authentication, middleware and JSON Investment API. Production version uses mySQL',
     image: 'assets/mega-invest-demo.png',
     technologies: ['Typescript', 'CSS3', 'JSON', 'CRUD', 'JWT Authentication'],
     category: 'web',
