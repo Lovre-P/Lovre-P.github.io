@@ -145,7 +145,7 @@ a:hover { color: var(--accent-hover); }
 .hero-section {
   position: relative;
   height: 500vh; /* scroll space for 121 frames */
-  background: #e8e8e8; /* matches video bg */
+  background: #ffffff;
 }
 
 .canvas-wrap {
