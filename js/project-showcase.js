@@ -514,6 +514,27 @@ const enhancedProjectsData = [
     link: 'https://lovre-p.github.io/summarizer-basic',
     github: 'https://github.com/Lovre-P/summarizer-basic'
   },
+  {
+    id: 9,
+    title: 'Signal 022 — Parallax Scroll Website',
+    description: 'Scroll-driven video animation website for a signage company in Šibenik, Croatia.',
+    longDescription: 'A full-page scroll-driven storytelling website for Signal 022, a signage and visual communications company. Features a 121-frame video sequence controlled by scroll position, horizontal filmstrip portfolio, parallax depth effects, and a dark cinematic theme. Built with zero dependencies — pure HTML, CSS, and vanilla JavaScript.',
+    image: 'assets/signal022-thumb.jpg',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Canvas API', 'FFmpeg', 'Parallax'],
+    category: 'design',
+    features: [
+      'Scroll-driven 121-frame video sequence on canvas',
+      'Horizontal filmstrip portfolio with 3 parallax tracks',
+      'Ken Burns parallax zoom on yacht spotlight section',
+      'Preloader with frame loading progress',
+      'prefers-reduced-motion accessibility support',
+      'Mobile-optimized with reduced frame set (61 frames)',
+      'Dark cinematic theme with gold accents',
+      'Zero dependencies — pure HTML/CSS/JS'
+    ],
+    link: 'https://lovre-p.github.io/signal022/',
+    github: 'https://github.com/Lovre-P/Lovre-P.github.io'
+  },
 ];
 
 // ===== GLOBAL FUNCTION FOR LOADING PROJECTS =====

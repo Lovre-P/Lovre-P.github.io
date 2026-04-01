@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal 022 — Vizualna komunikacija koja se pamti</title>
+  <meta name="description" content="Signal 022 — reklamni panoi, reljefne reklame, neonske i LED reklame, oslikavanje vozila, yacht signage. 20+ godina iskustva u Šibeniku.">
+  <meta property="og:title" content="Signal 022 — Vizualna komunikacija koja se pamti">
+  <meta property="og:description" content="Od reljefnih reklama do yacht brandinga — 20+ godina iskustva u Šibeniku.">
+  <meta property="og:type" content="website">
+
+  <link rel="preload" as="image" href="frames/desktop/f0001.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="frames/desktop/f0002.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="frames/desktop/f0003.webp" fetchpriority="high">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-text">SIGNAL 022</div>
+      <div class="preloader-bar">
+        <div class="preloader-fill" id="preloaderFill"></div>
+      </div>
+      <div class="preloader-percent" id="preloaderPercent">0%</div>
+    </div>
+  </div>
+
+  <!-- SCROLL INDICATOR -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAV DOTS -->
+  <nav class="nav-dots" id="navDots" aria-label="Navigacija sekcija">
+    <button class="nav-dot active" data-section="hero" aria-label="Početak"></button>
+    <button class="nav-dot" data-section="services" aria-label="Usluge"></button>
+    <button class="nav-dot" data-section="portfolio" aria-label="Portfolio"></button>
+    <button class="nav-dot" data-section="yacht" aria-label="Yacht Signage"></button>
+    <button class="nav-dot" data-section="about" aria-label="O nama"></button>
+    <button class="nav-dot" data-section="contact" aria-label="Kontakt"></button>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: VIDEO SEQUENCE HERO               -->
+  <!-- ============================================ -->
+  <section class="scroll-section hero-section" id="hero" data-section="hero">
+    <div class="canvas-wrap">
+      <canvas class="scroll-canvas" id="scrollCanvas"></canvas>
+    </div>
+
+    <!-- Overlay text phases -->
+    <div class="hero-overlay">
+      <div class="hero-text phase-1" data-phase="1">
+        <h1 class="hero-title">SIGNAL<span class="hero-title-accent">022</span></h1>
+      </div>
+      <div class="hero-text phase-2" data-phase="2">
+        <p class="hero-subtitle">Vizualna komunikacija</p>
+      </div>
+      <div class="hero-text phase-3" data-phase="3">
+        <p class="hero-subtitle">koja se pamti</p>
+      </div>
+      <div class="hero-text phase-4" data-phase="4">
+        <p class="hero-cta-text">Scroll to explore</p>
+        <svg class="scroll-arrow" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Gradient transition to dark -->
+    <div class="hero-fade-bottom"></div>
+  </section>
+
+  <!-- Static fallback for reduced motion -->
+  <div class="scroll-static-fallback" id="staticFallback">
+    <img src="frames/desktop/f0001.webp" alt="Signal 022 — Chrome 3D slovo" loading="eager">
+    <div class="hero-overlay static">
+      <h1 class="hero-title">SIGNAL<span class="hero-title-accent">022</span></h1>
+      <p class="hero-subtitle">Vizualna komunikacija koja se pamti</p>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2: USLUGE REVEAL                     -->
+  <!-- ============================================ -->
+  <section class="content-section services-section" id="services" data-section="services">
+    <div class="section-header">
+      <h2 class="section-title" data-parallax-fade>Naše usluge</h2>
+      <p class="section-subtitle" data-parallax-fade>Od ideje do montaže — sve pod jednim krovom</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" data-parallax-y="0.15" data-delay="0">
+        <div class="service-img-wrap">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-01.jpg" alt="Reklamni panoi" loading="lazy">
+        </div>
+        <h3>Reklamni panoi</h3>
+        <p>Natpisne ploče i panoi koji privlače pažnju — od aluminija do plexiglasa.</p>
+      </div>
+
+      <div class="service-card" data-parallax-y="0.25" data-delay="1">
+        <div class="service-img-wrap">
+          <img src="assets/images/relief-signs/relief-signs-01.jpg" alt="Reljefne reklame" loading="lazy">
+        </div>
+        <h3>Reljefne reklame</h3>
+        <p>Trodimenzionalni natpisi koji daju dubinu i prestiž vašem prostoru.</p>
+      </div>
+
+      <div class="service-card" data-parallax-y="0.1" data-delay="2">
+        <div class="service-img-wrap">
+          <img src="assets/images/svjetleci-displayi/svjetleci-displayi-01.jpg" alt="Neonske i LED reklame" loading="lazy">
+        </div>
+        <h3>Neonske i LED reklame</h3>
+        <p>Svjetleći natpisi koji rade za vas 24/7 — vidljivi danju i noću.</p>
+      </div>
+
+      <div class="service-card" data-parallax-y="0.2" data-delay="3">
+        <div class="service-img-wrap">
+          <img src="assets/images/svjetleci-displayi/svjetleci-displayi-05.jpg" alt="Svjetleći display-i" loading="lazy">
+        </div>
+        <h3>Svjetleći display-i</h3>
+        <p>LED lightbox rješenja za izloge, restorane i poslovne prostore.</p>
+      </div>
+
+      <div class="service-card" data-parallax-y="0.3" data-delay="4">
+        <div class="service-img-wrap">
+          <img src="assets/images/samostojeca-slova/samostojeca-slova-01.jpg" alt="Samostojeća slova" loading="lazy">
+        </div>
+        <h3>Samostojeća slova</h3>
+        <p>3D slova od metala, plexiglasa ili PVC-a — vaš brend u prostoru.</p>
+      </div>
+
+      <div class="service-card" data-parallax-y="0.12" data-delay="5">
+        <div class="service-img-wrap">
+          <img src="assets/images/totemi/totemi-01.jpg" alt="Totemi" loading="lazy">
+        </div>
+        <h3>Totemi</h3>
+        <p>Samostojeći reklamni stupovi za benzinske, trgovačke centre i poslovne zone.</p>
+      </div>
+
+      <div class="service-card" data-parallax-y="0.22" data-delay="6">
+        <div class="service-img-wrap">
+          <img src="assets/images/custom-fabrication/custom-fabrication-01.jpg" alt="Proizvodi od plexiglasa" loading="lazy">
+        </div>
+        <h3>Plexiglas i custom</h3>
+        <p>Akrilni proizvodi po mjeri — displayi, kutije, stalci i specialni projekti.</p>
+      </div>
+
+      <div class="service-card" data-parallax-y="0.18" data-delay="7">
+        <div class="service-img-wrap">
+          <img src="assets/images/photos-general/photos-general-01.jpg" alt="Digitalni tisak" loading="lazy">
+        </div>
+        <h3>Digitalni tisak i folije</h3>
+        <p>Oslikavanje vozila, izloga i površina — od ideje do aplikacije.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 3: PORTFOLIO FILMSTRIP               -->
+  <!-- ============================================ -->
+  <section class="content-section portfolio-section" id="portfolio" data-section="portfolio">
+    <div class="section-header">
+      <h2 class="section-title" data-parallax-fade>Naši radovi</h2>
+      <p class="section-subtitle" data-parallax-fade>20+ godina — 1000+ projekata</p>
+    </div>
+
+    <div class="filmstrip-container">
+      <!-- Track 1: moves LEFT, speed 1.5x -->
+      <div class="filmstrip-track" data-speed="1.5" data-direction="-1">
+        <div class="filmstrip-inner">
+          <img src="assets/images/yacht-signs/yacht-signs-01.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/yacht-signs/yacht-signs-02.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/yacht-signs/yacht-signs-03.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/yacht-signs/yacht-signs-04.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/yacht-signs/yacht-signs-05.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/yacht-signs/yacht-signs-06.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/yacht-signs/yacht-signs-07.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/yacht-signs/yacht-signs-08.jpg" alt="Yacht signage" loading="lazy">
+          <img src="assets/images/samostojeca-slova/samostojeca-slova-01.jpg" alt="Samostojeća slova" loading="lazy">
+          <img src="assets/images/samostojeca-slova/samostojeca-slova-02.jpg" alt="Samostojeća slova" loading="lazy">
+          <img src="assets/images/samostojeca-slova/samostojeca-slova-03.jpg" alt="Samostojeća slova" loading="lazy">
+          <!-- Duplicates for seamless loop -->
+          <img src="assets/images/yacht-signs/yacht-signs-01.jpg" alt="Yacht signage" loading="lazy" aria-hidden="true">
+          <img src="assets/images/yacht-signs/yacht-signs-02.jpg" alt="Yacht signage" loading="lazy" aria-hidden="true">
+          <img src="assets/images/yacht-signs/yacht-signs-03.jpg" alt="Yacht signage" loading="lazy" aria-hidden="true">
+          <img src="assets/images/yacht-signs/yacht-signs-04.jpg" alt="Yacht signage" loading="lazy" aria-hidden="true">
+          <img src="assets/images/yacht-signs/yacht-signs-05.jpg" alt="Yacht signage" loading="lazy" aria-hidden="true">
+        </div>
+      </div>
+
+      <!-- Track 2: moves RIGHT, speed 1.0x -->
+      <div class="filmstrip-track" data-speed="1.0" data-direction="1">
+        <div class="filmstrip-inner">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-01.jpg" alt="Reklamni panoi" loading="lazy">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-02.jpg" alt="Reklamni panoi" loading="lazy">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-03.jpg" alt="Reklamni panoi" loading="lazy">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-04.jpg" alt="Reklamni panoi" loading="lazy">
+          <img src="assets/images/relief-signs/relief-signs-01.jpg" alt="Relief signs" loading="lazy">
+          <img src="assets/images/relief-signs/relief-signs-02.jpg" alt="Relief signs" loading="lazy">
+          <img src="assets/images/relief-signs/relief-signs-03.jpg" alt="Relief signs" loading="lazy">
+          <img src="assets/images/relief-signs/relief-signs-04.jpg" alt="Relief signs" loading="lazy">
+          <img src="assets/images/relief-signs/relief-signs-05.jpg" alt="Relief signs" loading="lazy">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-05.jpg" alt="Reklamni panoi" loading="lazy">
+          <!-- Duplicates -->
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-01.jpg" alt="Reklamni panoi" loading="lazy" aria-hidden="true">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-02.jpg" alt="Reklamni panoi" loading="lazy" aria-hidden="true">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-03.jpg" alt="Reklamni panoi" loading="lazy" aria-hidden="true">
+          <img src="assets/images/reklamni-panoi/reklamni-panoi-04.jpg" alt="Reklamni panoi" loading="lazy" aria-hidden="true">
+          <img src="assets/images/relief-signs/relief-signs-01.jpg" alt="Relief signs" loading="lazy" aria-hidden="true">
+        </div>
+      </div>
+
+      <!-- Track 3: moves LEFT, speed 0.6x -->
+      <div class="filmstrip-track" data-speed="0.6" data-direction="-1">
+        <div class="filmstrip-inner">
+          <img src="assets/images/custom-fabrication/custom-fabrication-01.jpg" alt="Custom fabrication" loading="lazy">
+          <img src="assets/images/custom-fabrication/custom-fabrication-02.jpg" alt="Custom fabrication" loading="lazy">
+          <img src="assets/images/custom-fabrication/custom-fabrication-03.jpg" alt="Custom fabrication" loading="lazy">
+          <img src="assets/images/custom-fabrication/custom-fabrication-04.jpg" alt="Custom fabrication" loading="lazy">
+          <img src="assets/images/totemi/totemi-01.jpg" alt="Totemi" loading="lazy">
+          <img src="assets/images/totemi/totemi-02.jpg" alt="Totemi" loading="lazy">
+          <img src="assets/images/totemi/totemi-03.jpg" alt="Totemi" loading="lazy">
+          <img src="assets/images/totemi/totemi-04.jpg" alt="Totemi" loading="lazy">
+          <img src="assets/images/photos-general/photos-general-02.jpg" alt="Signal radovi" loading="lazy">
+          <img src="assets/images/photos-general/photos-general-03.jpg" alt="Signal radovi" loading="lazy">
+          <!-- Duplicates -->
+          <img src="assets/images/custom-fabrication/custom-fabrication-01.jpg" alt="Custom fabrication" loading="lazy" aria-hidden="true">
+          <img src="assets/images/custom-fabrication/custom-fabrication-02.jpg" alt="Custom fabrication" loading="lazy" aria-hidden="true">
+          <img src="assets/images/custom-fabrication/custom-fabrication-03.jpg" alt="Custom fabrication" loading="lazy" aria-hidden="true">
+          <img src="assets/images/custom-fabrication/custom-fabrication-04.jpg" alt="Custom fabrication" loading="lazy" aria-hidden="true">
+          <img src="assets/images/totemi/totemi-01.jpg" alt="Totemi" loading="lazy" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 4: YACHT SIGNAGE SPOTLIGHT            -->
+  <!-- ============================================ -->
+  <section class="content-section yacht-section" id="yacht" data-section="yacht">
+    <div class="yacht-bg" data-parallax-bg>
+      <img src="assets/images/yacht-signs/yacht-signs-05.jpg" alt="Yacht signage background" loading="lazy">
+    </div>
+    <div class="yacht-content">
+      <span class="yacht-label" data-parallax-fade>Premium Service</span>
+      <h2 class="yacht-title" data-parallax-fade>Yacht Signs<br>&amp; Acrylic</h2>
+      <p class="yacht-desc" data-parallax-fade>
+        Premium maritime branding for yacht owners, charter companies, and marinas along the Adriatic coast.
+        Custom lettering, acrylic displays, and signage built to withstand the sea.
+      </p>
+      <a href="#contact" class="btn yacht-cta" data-parallax-fade>Get a quote for your vessel</a>
+    </div>
+
+    <div class="yacht-gallery">
+      <div class="yacht-gallery-item" data-parallax-scale>
+        <img src="assets/images/yacht-signs/yacht-signs-02.jpg" alt="Yacht branding" loading="lazy">
+      </div>
+      <div class="yacht-gallery-item" data-parallax-scale>
+        <img src="assets/images/yacht-signs/yacht-signs-03.jpg" alt="Yacht lettering" loading="lazy">
+      </div>
+      <div class="yacht-gallery-item" data-parallax-scale>
+        <img src="assets/images/yacht-signs/yacht-signs-06.jpg" alt="Marine graphics" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 5: O NAMA                             -->
+  <!-- ============================================ -->
+  <section class="content-section about-section" id="about" data-section="about">
+    <div class="about-layout">
+      <div class="about-text" data-parallax-fade>
+        <h2 class="section-title">O nama</h2>
+        <p>
+          Signal 022 je obiteljski obrt iz Šibenika koji se više od 20 godina bavi
+          izradom vizualnih komunikacijskih rješenja. Od malih natpisnih ploča do
+          kompleksnih yacht brendiranja — svaki projekt tretiramo s istom pažnjom.
+        </p>
+        <p>
+          Vlastita radionica znači potpunu kontrolu kvalitete. Ne preprodajemo —
+          dizajniramo, izrađujemo i montiramo. Od ideje do gotovog proizvoda,
+          sve je u našim rukama.
+        </p>
+      </div>
+      <div class="about-image" data-parallax-y="0.1">
+        <img src="assets/images/custom-fabrication/custom-fabrication-05.jpg" alt="Signal 022 radionica" loading="lazy">
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat" data-parallax-fade>
+        <span class="stat-number" data-count="20">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Godina iskustva</span>
+      </div>
+      <div class="stat" data-parallax-fade>
+        <span class="stat-number" data-count="1000">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Projekata</span>
+      </div>
+      <div class="stat" data-parallax-fade>
+        <span class="stat-number" data-count="8">0</span>
+        <span class="stat-label">Vrsta usluga</span>
+      </div>
+      <div class="stat" data-parallax-fade>
+        <span class="stat-number" data-count="1">0</span>
+        <span class="stat-label">Lokacija — Šibenik</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 6: KONTAKT                            -->
+  <!-- ============================================ -->
+  <section class="content-section contact-section" id="contact" data-section="contact">
+    <div class="contact-bg-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.5!2d15.8944!3d43.7275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQzJzM5LjAiTiAxNcKwNTMnMzkuOCJF!5e0!3m2!1shr!2shr!4v1"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+        title="Signal 022 lokacija"></iframe>
+    </div>
+
+    <div class="contact-content" data-parallax-fade>
+      <h2 class="section-title">Kontaktirajte nas</h2>
+      <p class="section-subtitle">Opišite nam što trebate — javimo se unutar 24h</p>
+
+      <form class="contact-form" id="contactForm" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Vaše ime" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email adresa" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Telefon">
+          </div>
+          <div class="form-group">
+            <select name="service">
+              <option value="">Odaberite uslugu</option>
+              <option value="panoi">Reklamni panoi</option>
+              <option value="reljef">Reljefne reklame</option>
+              <option value="neon">Neonske i LED reklame</option>
+              <option value="display">Svjetleći display-i</option>
+              <option value="slova">Samostojeća slova</option>
+              <option value="totemi">Totemi</option>
+              <option value="plexiglas">Plexiglas i custom</option>
+              <option value="tisak">Digitalni tisak i folije</option>
+              <option value="yacht">Yacht Signs</option>
+              <option value="ostalo">Ostalo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <textarea name="message" placeholder="Vaša poruka..." rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-submit">Pošaljite upit</button>
+      </form>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <strong>Adresa</strong>
+          <span>Bosuć 4, Bilice, 22000 Šibenik</span>
+        </div>
+        <div class="contact-item">
+          <strong>Telefon</strong>
+          <a href="tel:+38522334393">+385 22 334 393</a>
+        </div>
+        <div class="contact-item">
+          <strong>Email</strong>
+          <a href="mailto:signal1@si.t-com.hr">signal1@si.t-com.hr</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 Signal 022 — Obrt SIGNAL, Šibenik</span>
+      <a href="https://facebook.com/signal022" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </footer>
+
+  <script src="js/scroll-sequence.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

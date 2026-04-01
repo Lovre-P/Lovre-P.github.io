@@ -1,0 +1,840 @@
+/* ============================================
+   Signal 022 — Parallax Scroll Website
+   Dark theme, scroll-driven animations
+   ============================================ */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: #1a1a1a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0a0a0;
+  --accent: #c0a060;
+  --accent-hover: #d4b878;
+  --accent-dim: rgba(192, 160, 96, 0.15);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --vh: 1vh;
+}
+
+html {
+  scroll-behavior: auto; /* no smooth scroll — we control it */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--accent-hover); }
+
+/* --- Preloader --- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader-inner {
+  text-align: center;
+}
+.preloader-text {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+.preloader-bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+}
+.preloader-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.15s ease;
+}
+.preloader-percent {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+}
+
+/* --- Scroll Progress Bar --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 1000;
+  transition: none;
+}
+
+/* --- Nav Dots --- */
+.nav-dots {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.nav-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+.nav-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.3);
+}
+.nav-dot:hover {
+  border-color: var(--accent);
+}
+
+/* ============================================
+   SECTION 1: VIDEO SEQUENCE HERO
+   ============================================ */
+.hero-section {
+  position: relative;
+  height: 500vh; /* scroll space for 121 frames */
+  background: #e8e8e8; /* matches video bg */
+}
+
+.canvas-wrap {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.scroll-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  will-change: transform;
+  image-rendering: auto;
+}
+
+/* Dark vignette overlay — subtle, lets the animation breathe */
+.canvas-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 30%, transparent 50%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero overlay text */
+.hero-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  transition: none; /* JS controls opacity */
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-shadow:
+    0 2px 20px rgba(0,0,0,0.6),
+    0 0 60px rgba(0,0,0,0.3),
+    0 0 2px rgba(0,0,0,0.8);
+}
+.hero-title-accent {
+  display: block;
+  font-size: 0.5em;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-top: 0.2em;
+  text-shadow:
+    0 2px 15px rgba(0,0,0,0.5),
+    0 0 40px rgba(192,160,96,0.3);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  text-shadow:
+    0 2px 15px rgba(0,0,0,0.6),
+    0 0 40px rgba(0,0,0,0.3),
+    0 0 2px rgba(0,0,0,0.8);
+}
+
+.hero-cta-text {
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.scroll-arrow {
+  display: block;
+  margin: 1rem auto 0;
+  color: var(--accent);
+  animation: bounceArrow 2s ease infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* Gradient fade at bottom of hero → dark */
+.hero-fade-bottom {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Static fallback */
+.scroll-static-fallback {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+.scroll-static-fallback img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.scroll-static-fallback .hero-overlay {
+  position: absolute;
+}
+.scroll-static-fallback .hero-overlay.static {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 1;
+}
+.scroll-static-fallback .hero-title,
+.scroll-static-fallback .hero-subtitle {
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section { display: none; }
+  .scroll-static-fallback { display: block; }
+  .hero-overlay { position: absolute; }
+  .nav-dots { display: none; }
+}
+
+/* ============================================
+   CONTENT SECTIONS — shared
+   ============================================ */
+.content-section {
+  position: relative;
+  padding: 8rem 2rem;
+  z-index: 20;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+/* ============================================
+   SECTION 2: SERVICES
+   ============================================ */
+.services-section {
+  background: var(--bg-primary);
+  padding-bottom: 6rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+  opacity: 0;
+  transform: translateY(60px);
+}
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.service-img-wrap {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.service-card:hover .service-img-wrap img {
+  transform: scale(1.08);
+}
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1.2rem 1.2rem 0.4rem;
+  color: var(--text-primary);
+}
+
+.service-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 0 1.2rem 1.2rem;
+  line-height: 1.5;
+}
+
+/* ============================================
+   SECTION 3: PORTFOLIO FILMSTRIP
+   ============================================ */
+.portfolio-section {
+  background: var(--bg-secondary);
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.portfolio-section .section-header {
+  padding: 0 2rem;
+}
+
+.filmstrip-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filmstrip-track {
+  overflow: hidden;
+  width: 100%;
+}
+
+.filmstrip-inner {
+  display: flex;
+  gap: 1rem;
+  will-change: transform;
+}
+
+.filmstrip-inner img {
+  height: 220px;
+  width: auto;
+  min-width: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: filter 0.3s ease;
+}
+.filmstrip-inner img:hover {
+  filter: brightness(1.2);
+}
+
+/* ============================================
+   SECTION 4: YACHT SPOTLIGHT
+   ============================================ */
+.yacht-section {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6rem 2rem;
+}
+
+.yacht-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.yacht-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.25) saturate(0.7);
+  transform: scale(1.1);
+  will-change: transform;
+}
+
+.yacht-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.yacht-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.yacht-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.yacht-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.yacht-gallery {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.yacht-gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  will-change: transform;
+}
+.yacht-gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.yacht-gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   SECTION 5: ABOUT
+   ============================================ */
+.about-section {
+  background: var(--bg-secondary);
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto 5rem;
+  align-items: center;
+}
+
+.about-text h2 {
+  margin-bottom: 1.5rem;
+}
+.about-text p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-image {
+  border-radius: 12px;
+  overflow: hidden;
+  will-change: transform;
+}
+.about-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stat {
+  padding: 2rem 1rem;
+}
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-suffix {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   SECTION 6: CONTACT
+   ============================================ */
+.contact-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+}
+
+.contact-bg-map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.2;
+  filter: grayscale(1) brightness(0.4);
+}
+.contact-bg-map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-content .section-title { margin-bottom: 0.5rem; }
+.contact-content .section-subtitle { margin-bottom: 3rem; }
+
+.contact-form {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group.full {
+  margin-bottom: 1rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-secondary);
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+}
+.contact-form select {
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+.contact-form select option {
+  background: var(--bg-card);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: var(--accent);
+  color: var(--bg-primary);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  letter-spacing: 0.03em;
+}
+.btn:hover {
+  background: var(--accent-hover);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+.btn-submit {
+  width: 100%;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.contact-item {
+  text-align: center;
+}
+.contact-item strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+.contact-item span,
+.contact-item a {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   PARALLAX FADE UTILITY
+   ============================================ */
+[data-parallax-fade] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+[data-parallax-fade].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .yacht-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-dots { display: none; }
+
+  .hero-section {
+    height: 400vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+
+  .content-section {
+    padding: 5rem 1.2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .service-img-wrap { height: 180px; }
+
+  .filmstrip-inner img {
+    height: 160px;
+    min-width: 220px;
+  }
+
+  .yacht-gallery {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .yacht-gallery-item img {
+    height: 200px;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-image img { height: 250px; }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .stat-number { font-size: 2.2rem; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section { height: 350vh; }
+  .filmstrip-inner img {
+    height: 130px;
+    min-width: 180px;
+  }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+}
