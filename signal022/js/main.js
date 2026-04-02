@@ -81,6 +81,7 @@
   let lastHeroVisible = true;
 
   function updateHeroTextPhases(frame, total) {
+    // Calculate which phase to show based on frame progress
     const progress = frame / (total - 1);
 
     // Phase ranges (overlap for smooth transitions)

@@ -44,15 +44,14 @@ class ScrollSequence {
   }
 
   setupCanvas() {
-    // Fill entire viewport — no gaps on any device
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    this.canvas.width = vw * dpr;
-    this.canvas.height = vh * dpr;
+    // Match video aspect ratio 1280:720 = 16:9
+    const w = Math.min(window.innerWidth, 1280);
+    const h = w * (720 / 1280);
+    this.canvas.width = w * (window.devicePixelRatio > 1 ? 2 : 1);
+    this.canvas.height = h * (window.devicePixelRatio > 1 ? 2 : 1);
     this.canvas.style.width = '100%';
-    this.canvas.style.height = '100%';
-    this.canvas.style.maxHeight = '';
+    this.canvas.style.height = 'auto';
+    this.canvas.style.maxHeight = '100vh';
   }
 
   preloadFrames() {
@@ -142,37 +141,24 @@ class ScrollSequence {
     const cw = this.canvas.width;
     const ch = this.canvas.height;
 
-    // Fill with bg color first (for contain mode gaps)
-    this.ctx.fillStyle = '#ebebeb';
-    this.ctx.fillRect(0, 0, cw, ch);
+    // Clear and draw centered/covered
+    this.ctx.clearRect(0, 0, cw, ch);
 
     const imgRatio = img.naturalWidth / img.naturalHeight;
     const canvasRatio = cw / ch;
 
     let drawW, drawH, drawX, drawY;
-
-    if (this.isMobile) {
-      // MOBILE: contain — show full frame, bg fills gaps
-      if (imgRatio > canvasRatio) {
-        drawW = cw;
-        drawH = cw / imgRatio;
-      } else {
-        drawH = ch;
-        drawW = ch * imgRatio;
-      }
+    if (imgRatio > canvasRatio) {
+      drawH = ch;
+      drawW = ch * imgRatio;
+      drawX = (cw - drawW) / 2;
+      drawY = 0;
     } else {
-      // DESKTOP: cover — fill viewport, crop overflow
-      if (imgRatio > canvasRatio) {
-        drawH = ch;
-        drawW = ch * imgRatio;
-      } else {
-        drawW = cw;
-        drawH = cw / imgRatio;
-      }
+      drawW = cw;
+      drawH = cw / imgRatio;
+      drawX = 0;
+      drawY = (ch - drawH) / 2;
     }
-
-    drawX = (cw - drawW) / 2;
-    drawY = (ch - drawH) / 2;
 
     this.ctx.drawImage(img, drawX, drawY, drawW, drawH);
   }
