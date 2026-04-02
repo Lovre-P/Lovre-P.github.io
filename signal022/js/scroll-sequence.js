@@ -142,22 +142,35 @@ class ScrollSequence {
     const cw = this.canvas.width;
     const ch = this.canvas.height;
 
-    this.ctx.clearRect(0, 0, cw, ch);
+    // Fill with bg color first (for contain mode gaps)
+    this.ctx.fillStyle = '#ebebeb';
+    this.ctx.fillRect(0, 0, cw, ch);
 
-    // "Cover" mode — fill canvas completely, crop overflow
     const imgRatio = img.naturalWidth / img.naturalHeight;
     const canvasRatio = cw / ch;
 
     let drawW, drawH, drawX, drawY;
-    if (imgRatio > canvasRatio) {
-      // Image is wider — fit height, crop sides
-      drawH = ch;
-      drawW = ch * imgRatio;
+
+    if (this.isMobile) {
+      // MOBILE: contain — show full frame, bg fills gaps
+      if (imgRatio > canvasRatio) {
+        drawW = cw;
+        drawH = cw / imgRatio;
+      } else {
+        drawH = ch;
+        drawW = ch * imgRatio;
+      }
     } else {
-      // Image is taller — fit width, crop top/bottom
-      drawW = cw;
-      drawH = cw / imgRatio;
+      // DESKTOP: cover — fill viewport, crop overflow
+      if (imgRatio > canvasRatio) {
+        drawH = ch;
+        drawW = ch * imgRatio;
+      } else {
+        drawW = cw;
+        drawH = cw / imgRatio;
+      }
     }
+
     drawX = (cw - drawW) / 2;
     drawY = (ch - drawH) / 2;
 

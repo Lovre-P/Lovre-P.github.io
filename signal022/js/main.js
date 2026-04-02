@@ -78,23 +78,10 @@
   // --- Hero text phase controller ---
   const heroPhases = document.querySelectorAll('.hero-text');
   const heroOverlay = document.querySelector('.hero-overlay');
-  const heroBacking = document.getElementById('heroTextBacking');
   let lastHeroVisible = true;
 
   function updateHeroTextPhases(frame, total) {
-    // Calculate which phase to show based on frame progress
     const progress = frame / (total - 1);
-
-    // Animate the text backing — fade out + shrink toward center + blur
-    if (heroBacking) {
-      // Backing fully visible at 0%, gone by 25% scroll
-      const backingFade = Math.max(0, 1 - progress / 0.25);
-      const scale = 1 - (1 - backingFade) * 0.4; // shrinks to 60%
-      const blur = (1 - backingFade) * 15; // blurs up to 15px
-      heroBacking.style.opacity = backingFade;
-      heroBacking.style.transform = `translateX(-50%) scale(${scale})`;
-      heroBacking.style.filter = `blur(${blur}px)`;
-    }
 
     // Phase ranges (overlap for smooth transitions)
     const phases = [
