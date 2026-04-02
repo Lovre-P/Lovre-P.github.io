@@ -44,14 +44,15 @@ class ScrollSequence {
   }
 
   setupCanvas() {
-    // Match video aspect ratio 1280:720 = 16:9
-    const w = Math.min(window.innerWidth, 1280);
-    const h = w * (720 / 1280);
-    this.canvas.width = w * (window.devicePixelRatio > 1 ? 2 : 1);
-    this.canvas.height = h * (window.devicePixelRatio > 1 ? 2 : 1);
+    // Fill entire viewport — no gaps on any device
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    this.canvas.width = vw * dpr;
+    this.canvas.height = vh * dpr;
     this.canvas.style.width = '100%';
-    this.canvas.style.height = 'auto';
-    this.canvas.style.maxHeight = '100vh';
+    this.canvas.style.height = '100%';
+    this.canvas.style.maxHeight = '';
   }
 
   preloadFrames() {
@@ -141,24 +142,24 @@ class ScrollSequence {
     const cw = this.canvas.width;
     const ch = this.canvas.height;
 
-    // Clear and draw centered/covered
     this.ctx.clearRect(0, 0, cw, ch);
 
+    // "Cover" mode — fill canvas completely, crop overflow
     const imgRatio = img.naturalWidth / img.naturalHeight;
     const canvasRatio = cw / ch;
 
     let drawW, drawH, drawX, drawY;
     if (imgRatio > canvasRatio) {
+      // Image is wider — fit height, crop sides
       drawH = ch;
       drawW = ch * imgRatio;
-      drawX = (cw - drawW) / 2;
-      drawY = 0;
     } else {
+      // Image is taller — fit width, crop top/bottom
       drawW = cw;
       drawH = cw / imgRatio;
-      drawX = 0;
-      drawY = (ch - drawH) / 2;
     }
+    drawX = (cw - drawW) / 2;
+    drawY = (ch - drawH) / 2;
 
     this.ctx.drawImage(img, drawX, drawY, drawW, drawH);
   }
