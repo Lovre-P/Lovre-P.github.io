@@ -31,7 +31,7 @@
     canvas: canvas,
     section: heroSection,
     frameCount: 121,
-    mobileFrameCount: 61,
+    mobileFrameCount: 121,
     desktopPath: 'frames/desktop',
     mobilePath: 'frames/mobile',
 
@@ -86,7 +86,7 @@
 
     // Phase ranges (overlap for smooth transitions)
     const phases = [
-      { el: heroPhases[0], start: -0.01, peak: 0.05, end: 0.22 },  // SIGNAL 022 (visible from start)
+      { el: heroPhases[0], start: -0.10, peak: 0.0,  end: 0.22 },  // SIGNAL 022 (visible from start)
       { el: heroPhases[1], start: 0.20,  peak: 0.32, end: 0.48 },  // Vizualna komunikacija
       { el: heroPhases[2], start: 0.45,  peak: 0.55, end: 0.70 },  // koja se pamti
       { el: heroPhases[3], start: 0.72,  peak: 0.82, end: 1.01 },  // Scroll to explore (stays)
