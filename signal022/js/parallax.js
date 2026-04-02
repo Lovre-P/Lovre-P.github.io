@@ -99,9 +99,11 @@ class ParallaxEngine {
     // Progress through the section
     const progress = Math.max(0, Math.min(1, -sectionTop / (sectionHeight - this.vh)));
 
+    const isMobile = window.innerWidth < 768;
+
     this.filmstrips.forEach(strip => {
-      // Maximum translation — enough to show all images
-      const maxTranslate = strip.inner.scrollWidth * 0.35;
+      // Gentler parallax on mobile (user can also swipe)
+      const maxTranslate = strip.inner.scrollWidth * (isMobile ? 0.08 : 0.35);
       const targetX = progress * maxTranslate * strip.speed * strip.direction;
 
       // Lerp for smoothness

@@ -425,6 +425,48 @@ a:hover { color: var(--accent-hover); }
 }
 .filmstrip-inner img:hover {
   filter: brightness(1.2);
+  cursor: pointer;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox-img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+.lightbox.active .lightbox-img {
+  transform: scale(1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1;
 }
 
 /* ============================================
@@ -779,9 +821,21 @@ a:hover { color: var(--accent-hover); }
   }
   .service-img-wrap { height: 180px; }
 
+  .filmstrip-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filmstrip-track::-webkit-scrollbar {
+    display: none;
+  }
+  .filmstrip-inner {
+    will-change: auto;
+    padding: 0 1rem;
+  }
   .filmstrip-inner img {
-    height: 160px;
-    min-width: 220px;
+    height: 180px;
+    min-width: 260px;
   }
 
   .yacht-gallery {
