@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Signal 022 — Izrada reklamnih panoa, LED i neonskih natpisa, oslikavanje vozila, yacht branding. 20+ godina iskustva u Šibeniku.">
+  <title>Signal 022 — Vizualna komunikacija koja se pamti</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">SIGNAL <span>022</span></a>
+    <div class="nav-links">
+      <a href="#usluge">Usluge</a>
+      <a href="#radovi">Radovi</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt" class="nav-cta">Kontakt</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Otvori izbornik">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="mobileNav">
+  <a href="#usluge" class="mobile-nav-link">Usluge</a>
+  <a href="#radovi" class="mobile-nav-link">Radovi</a>
+  <a href="#o-nama" class="mobile-nav-link">O nama</a>
+  <a href="#kontakt" class="mobile-nav-link">Kontakt</a>
+</div>
+
+<!-- ============================================================
+     HERO — Cinematic Slideshow
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" data-index="0">
+      <img src="assets/images/hero/iskratea.jpg" alt="Iskra Tea branding — Signal 022">
+      <span class="hero-slide-label">Branding</span>
+    </div>
+    <div class="hero-slide" data-index="1">
+      <img src="assets/images/hero/familia.jpg" alt="Familia projekt — Signal 022">
+      <span class="hero-slide-label">Signage</span>
+    </div>
+    <div class="hero-slide" data-index="2">
+      <img src="assets/images/hero/evergreen.jpg" alt="Evergreen projekt — Signal 022">
+      <span class="hero-slide-label">Display</span>
+    </div>
+    <div class="hero-slide" data-index="3">
+      <img src="assets/images/hero/dream.jpg" alt="Dream projekt — Signal 022">
+      <span class="hero-slide-label">Custom</span>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-brand">
+      SIGNAL
+      <span>022 &middot; ŠIBENIK</span>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">Vizualna komunikacija koja se pamti</p>
+    <a href="#radovi" class="hero-cta">Otkrijte naše radove &darr;</a>
+  </div>
+
+  <div class="hero-progress">
+    <div class="hero-progress-bar active" data-slide="0"></div>
+    <div class="hero-progress-bar" data-slide="1"></div>
+    <div class="hero-progress-bar" data-slide="2"></div>
+    <div class="hero-progress-bar" data-slide="3"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES — Photo Cards
+     ============================================================ -->
+<section class="section services" id="usluge">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Usluge</p>
+      <h2 class="section-title">Što radimo</h2>
+      <p class="section-subtitle">Od reklamnih panoa do premium yacht brandinga — kompletna izrada vizualne komunikacije.</p>
+    </div>
+
+    <div class="services-grid reveal-stagger">
+      <div class="service-card" data-filter="panoi">
+        <img src="assets/images/reklamni-panoi/reklamni-panoi-01.jpg" alt="Reklamni panoi i natpisne ploče" loading="lazy">
+        <div class="service-card-content">
+          <h3 class="service-card-title">Reklamni panoi</h3>
+          <p class="service-card-sub">Natpisne ploče i panoi</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+
+      <div class="service-card" data-filter="relief">
+        <img src="assets/images/relief-signs/relief-signs-01.jpg" alt="Reljefne reklame" loading="lazy">
+        <div class="service-card-content">
+          <h3 class="service-card-title">Reljefne reklame</h3>
+          <p class="service-card-sub">3D reljefni natpisi</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+
+      <div class="service-card" data-filter="displayi">
+        <img src="assets/images/svjetleci-displayi/svjetleci-displayi-01.jpg" alt="Neonske i LED reklame" loading="lazy">
+        <div class="service-card-content">
+          <h3 class="service-card-title">Neon &amp; LED reklame</h3>
+          <p class="service-card-sub">Neonski i LED natpisi</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+
+      <div class="service-card" data-filter="displayi">
+        <img src="assets/images/svjetleci-displayi/svjetleci-displayi-02.jpg" alt="Svjetleći display-i" loading="lazy">
+        <div class="service-card-content">
+          <h3 class="service-card-title">Svjetleći display-i</h3>
+          <p class="service-card-sub">Light box paneli</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+
+      <div class="service-card" data-filter="slova">
+        <img src="assets/images/samostojeca-slova/samostojeca-slova-01.jpg" alt="Samostojeća slova" loading="lazy">
+        <div class="service-card-content">
+          <h3 class="service-card-title">Samostojeća slova</h3>
+          <p class="service-card-sub">3D slova za fasade</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+
+      <div class="service-card" data-filter="totemi">
+        <img src="assets/images/totemi/totemi-01.jpg" alt="Totemi" loading="lazy">
+        <div class="service-card-content">
+          <h3 class="service-card-title">Totemi</h3>
+          <p class="service-card-sub">Reklamni stupovi</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+
+      <div class="service-card" data-filter="custom">
+        <img src="assets/images/custom-fabrication/custom-fabrication-01.jpg" alt="Custom proizvodi" loading="lazy">
+        <div class="service-card-content">
+          <h3 class="service-card-title">Custom proizvodi</h3>
+          <p class="service-card-sub">Izrada po narudžbi</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+
+      <div class="service-card" data-filter="yacht">
+        <img src="assets/images/yacht-signs/yacht-signs-01.jpg" alt="Yacht Signs & Acrylic" loading="lazy">
+        <span class="service-badge">Premium</span>
+        <div class="service-card-content">
+          <h3 class="service-card-title">Yacht Signs &amp; Acrylic</h3>
+          <p class="service-card-sub">Premium nautički branding</p>
+          <p class="service-card-arrow">Pogledaj radove &rarr;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO — Filterable Masonry Grid
+     ============================================================ -->
+<section class="section portfolio" id="radovi">
+  <div class="container">
+    <div class="portfolio-header reveal">
+      <div>
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Naši radovi</h2>
+        <p class="section-subtitle">Više od 1000 realiziranih projekata u 20+ godina. Evo izbora iz naše radionice.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Sve</button>
+        <button class="filter-btn" data-filter="yacht">Yacht Signs</button>
+        <button class="filter-btn" data-filter="slova">Slova</button>
+        <button class="filter-btn" data-filter="panoi">Panoi</button>
+        <button class="filter-btn" data-filter="custom">Custom</button>
+        <button class="filter-btn" data-filter="totemi">Totemi</button>
+        <button class="filter-btn" data-filter="displayi">Display-i</button>
+        <button class="filter-btn" data-filter="relief">Relief</button>
+        <button class="filter-btn" data-filter="ostalo">Ostalo</button>
+      </div>
+    </div>
+
+    <div class="masonry-grid" id="masonryGrid">
+      <!-- Yacht Signs -->
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-01.jpg" alt="Yacht Signs rad 1" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-02.jpg" alt="Yacht Signs rad 2" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-03.jpg" alt="Yacht Signs rad 3" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-04.jpg" alt="Yacht Signs rad 4" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-05.jpg" alt="Yacht Signs rad 5" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-06.jpg" alt="Yacht Signs rad 6" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-07.jpg" alt="Yacht Signs rad 7" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+      <div class="masonry-item" data-category="yacht"><img src="assets/images/yacht-signs/yacht-signs-08.jpg" alt="Yacht Signs rad 8" loading="lazy"><span class="masonry-item-label">Yacht Signs</span></div>
+
+      <!-- Samostojeća slova -->
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-01.jpg" alt="Samostojeća slova rad 1" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-02.jpg" alt="Samostojeća slova rad 2" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-03.jpg" alt="Samostojeća slova rad 3" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-04.jpg" alt="Samostojeća slova rad 4" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-05.jpg" alt="Samostojeća slova rad 5" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-06.jpg" alt="Samostojeća slova rad 6" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-07.jpg" alt="Samostojeća slova rad 7" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+      <div class="masonry-item" data-category="slova"><img src="assets/images/samostojeca-slova/samostojeca-slova-08.jpg" alt="Samostojeća slova rad 8" loading="lazy"><span class="masonry-item-label">Samostojeća slova</span></div>
+
+      <!-- Reklamni panoi -->
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-01.jpg" alt="Reklamni panoi rad 1" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-02.jpg" alt="Reklamni panoi rad 2" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-03.jpg" alt="Reklamni panoi rad 3" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-04.jpg" alt="Reklamni panoi rad 4" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-05.jpg" alt="Reklamni panoi rad 5" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-06.jpg" alt="Reklamni panoi rad 6" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-07.jpg" alt="Reklamni panoi rad 7" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+      <div class="masonry-item" data-category="panoi"><img src="assets/images/reklamni-panoi/reklamni-panoi-08.jpg" alt="Reklamni panoi rad 8" loading="lazy"><span class="masonry-item-label">Reklamni panoi</span></div>
+
+      <!-- Custom fabrication -->
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-01.jpg" alt="Custom fabrication rad 1" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-02.jpg" alt="Custom fabrication rad 2" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-03.jpg" alt="Custom fabrication rad 3" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-04.jpg" alt="Custom fabrication rad 4" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-05.jpg" alt="Custom fabrication rad 5" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-06.jpg" alt="Custom fabrication rad 6" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-07.jpg" alt="Custom fabrication rad 7" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+      <div class="masonry-item" data-category="custom"><img src="assets/images/custom-fabrication/custom-fabrication-08.jpg" alt="Custom fabrication rad 8" loading="lazy"><span class="masonry-item-label">Custom</span></div>
+
+      <!-- Totemi -->
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-01.jpg" alt="Totemi rad 1" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-02.jpg" alt="Totemi rad 2" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-03.jpg" alt="Totemi rad 3" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-04.jpg" alt="Totemi rad 4" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-05.jpg" alt="Totemi rad 5" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-06.jpg" alt="Totemi rad 6" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-07.jpg" alt="Totemi rad 7" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+      <div class="masonry-item" data-category="totemi"><img src="assets/images/totemi/totemi-08.jpg" alt="Totemi rad 8" loading="lazy"><span class="masonry-item-label">Totemi</span></div>
+
+      <!-- Svjetleći display-i -->
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-01.jpg" alt="Svjetleći display rad 1" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-02.jpg" alt="Svjetleći display rad 2" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-03.jpg" alt="Svjetleći display rad 3" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-04.jpg" alt="Svjetleći display rad 4" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-05.jpg" alt="Svjetleći display rad 5" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-06.jpg" alt="Svjetleći display rad 6" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-07.jpg" alt="Svjetleći display rad 7" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+      <div class="masonry-item" data-category="displayi"><img src="assets/images/svjetleci-displayi/svjetleci-displayi-08.jpg" alt="Svjetleći display rad 8" loading="lazy"><span class="masonry-item-label">Display-i</span></div>
+
+      <!-- Relief Signs -->
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-01.jpg" alt="Relief Signs rad 1" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-02.jpg" alt="Relief Signs rad 2" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-03.jpg" alt="Relief Signs rad 3" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-04.jpg" alt="Relief Signs rad 4" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-05.jpg" alt="Relief Signs rad 5" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-06.jpg" alt="Relief Signs rad 6" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-07.jpg" alt="Relief Signs rad 7" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+      <div class="masonry-item" data-category="relief"><img src="assets/images/relief-signs/relief-signs-08.jpg" alt="Relief Signs rad 8" loading="lazy"><span class="masonry-item-label">Relief Signs</span></div>
+
+      <!-- Photos general -->
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-01.jpg" alt="Općenito rad 1" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-02.jpg" alt="Općenito rad 2" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-03.jpg" alt="Općenito rad 3" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-04.jpg" alt="Općenito rad 4" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-05.jpg" alt="Općenito rad 5" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-06.jpg" alt="Općenito rad 6" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-07.jpg" alt="Općenito rad 7" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+      <div class="masonry-item" data-category="ostalo"><img src="assets/images/photos-general/photos-general-08.jpg" alt="Općenito rad 8" loading="lazy"><span class="masonry-item-label">Ostalo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY US
+     ============================================================ -->
+<section class="section why-us" id="o-nama">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Zašto mi</p>
+      <h2 class="section-title">Zašto Signal 022</h2>
+      <p class="section-subtitle">Lokalni obrt s dugogodišnjim iskustvom i vlastitom proizvodnjom.</p>
+    </div>
+
+    <div class="why-grid reveal-stagger">
+      <div class="why-card">
+        <div class="why-card-number">20+</div>
+        <h3 class="why-card-title">Godina iskustva</h3>
+        <p class="why-card-desc">Obrt osnovan i aktivan od samih početaka. Dugogodišnje znanje, pouzdanost i stotine zadovoljnih klijenata.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-number" style="font-size: var(--text-2xl);">&#9881;</div>
+        <h3 class="why-card-title">Vlastita radionica</h3>
+        <p class="why-card-desc">Kompletna proizvodnja u vlastitom pogonu u Bilicama. Bez posrednika, bez čekanja.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-number" style="font-size: var(--text-2xl);">&#9889;</div>
+        <h3 class="why-card-title">Od ideje do montaže</h3>
+        <p class="why-card-desc">Dizajn, proizvodnja i postavljanje — sve na jednom mjestu. Vi opišete, mi napravimo.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-number" style="font-size: var(--text-2xl);">&#9906;</div>
+        <h3 class="why-card-title">Šibenik &amp; Dalmacija</h3>
+        <p class="why-card-desc">Lokalni obrt koji poznaje područje i potrebe lokalnih poduzetnika. Brza reakcija, osobni pristup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="section contact" id="kontakt">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Kontakt</p>
+      <h2 class="section-title">Zatražite ponudu</h2>
+      <p class="section-subtitle">Opišite nam što trebate — javimo se unutar 24h.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="reveal">
+        <form id="contactForm">
+          <div class="form-group">
+            <label class="form-label" for="name">Ime i prezime</label>
+            <input class="form-input" type="text" id="name" placeholder="Vaše ime">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" placeholder="email@primjer.hr">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Telefon</label>
+              <input class="form-input" type="tel" id="phone" placeholder="+385 ...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="service">Tip usluge</label>
+            <select class="form-select" id="service">
+              <option value="">Odaberite uslugu...</option>
+              <option value="panoi">Reklamni panoi</option>
+              <option value="relief">Reljefne reklame</option>
+              <option value="neon">Neon &amp; LED reklame</option>
+              <option value="display">Svjetleći display-i</option>
+              <option value="slova">Samostojeća slova</option>
+              <option value="totemi">Totemi</option>
+              <option value="custom">Custom proizvodi</option>
+              <option value="yacht">Yacht Signs &amp; Acrylic</option>
+              <option value="ostalo">Nešto drugo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Poruka</label>
+            <textarea class="form-textarea" id="message" placeholder="Opišite svoj projekt ili ideju..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Pošaljite upit &rarr;</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          Hvala na upitu! Javimo se unutar 24 sata.
+        </div>
+      </div>
+
+      <div class="contact-info reveal">
+        <div class="contact-info-item">
+          <p class="contact-info-label">Adresa</p>
+          <p class="contact-info-value">Bosuć 4, Bilice<br>22000 Šibenik</p>
+        </div>
+        <div class="contact-info-item">
+          <p class="contact-info-label">Telefon</p>
+          <p class="contact-info-value"><a href="tel:+38522334393">+385 22 334 393</a></p>
+        </div>
+        <div class="contact-info-item">
+          <p class="contact-info-label">Email</p>
+          <p class="contact-info-value"><a href="mailto:signal1@si.t-com.hr">signal1@si.t-com.hr</a></p>
+        </div>
+        <div class="contact-info-item">
+          <p class="contact-info-label">Facebook</p>
+          <p class="contact-info-value"><a href="https://www.facebook.com/signal022" target="_blank" rel="noopener">facebook.com/signal022</a></p>
+        </div>
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.5!2d15.8952!3d43.7275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQzJzM5LjAiTiAxNcKwNTMnNDMuMCJF!5e0!3m2!1shr!2shr!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Signal 022 lokacija">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">SIGNAL <span>022</span></p>
+        <p class="footer-desc">Izrada sredstava vizualne komunikacije. Reklamni panoi, LED natpisi, 3D slova, totemi, yacht branding i više.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Navigacija</p>
+        <div class="footer-links">
+          <a href="#usluge">Usluge</a>
+          <a href="#radovi">Naši radovi</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Kontakt</p>
+        <div class="footer-links">
+          <a href="tel:+38522334393">+385 22 334 393</a>
+          <a href="mailto:signal1@si.t-com.hr">signal1@si.t-com.hr</a>
+          <a>Bosuć 4, Bilice, 22000 Šibenik</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Signal 022. Sva prava pridržana.</span>
+      <span>Izrada: AIS Tech</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Zatvori">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Prethodna">&lsaquo;</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Sljedeća">&rsaquo;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Lightbox slika">
+  <span class="lightbox-label" id="lightboxLabel"></span>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

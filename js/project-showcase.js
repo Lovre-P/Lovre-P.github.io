@@ -535,6 +535,29 @@ const enhancedProjectsData = [
     link: 'https://lovre-p.github.io/signal022/',
     github: 'https://github.com/Lovre-P/Lovre-P.github.io'
   },
+  {
+    id: 10,
+    title: 'Signal 022 — Dark Industrial Demo',
+    description: 'Dark industrial portfolio website demo for a signage company with filterable masonry gallery.',
+    longDescription: 'A single-page demo website for Signal 022, a signage and visual communications company in Šibenik. Features a cinematic hero slideshow, photo-backed service cards, filterable masonry portfolio grid with lightbox, contact form, and a dark industrial theme with warm amber accents. All 64 curated portfolio images across 8 categories. Pure HTML/CSS/JS with no dependencies.',
+    image: 'assets/signal022-v1-thumb.png',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Masonry Grid', 'Lightbox'],
+    category: 'design',
+    features: [
+      'Cinematic hero slideshow with 4 rotating images',
+      'Photo-backed service cards with hover effects',
+      'Filterable masonry portfolio grid (9 categories)',
+      'Full-screen lightbox with keyboard navigation',
+      'Scroll reveal animations with staggered timing',
+      'Glassmorphic sticky nav with blur transition',
+      'Contact form with service dropdown',
+      'Responsive design with 4 breakpoints',
+      'Dark industrial theme with warm amber accents',
+      'Zero dependencies — pure HTML/CSS/JS'
+    ],
+    link: 'https://lovre-p.github.io/signal022-v1/',
+    github: 'https://github.com/Lovre-P/Lovre-P.github.io'
+  },
 ];
 
 // ===== GLOBAL FUNCTION FOR LOADING PROJECTS =====
